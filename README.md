@@ -19,9 +19,14 @@ docker compose up -d
 You should see two containers running as a result, such as:
 
 ```
-CONTAINER ID   IMAGE                                COMMAND                 CREATED       STATUS       PORTS     NAMES
-c57efd4cdbf5   apache/doris:2.0.0_alpha-be-x86_64   "bash entry_point.sh"   1 hours ago   Up 1 hours             doris-be-1
-bf82ce708150   apache/doris:2.0.0_alpha-fe-x86_64   "bash init_fe.sh"       1 hours ago   Up 1 hours             doris-fe-1
+CONTAINER ID   IMAGE                                COMMAND                 CREATED          STATUS          PORTS                                                                                  NAMES
+11d3dc8ff9c6   apache/doris:2.0.0_alpha-be-x86_64   "bash entry_point.sh"   19 minutes ago   Up 19 minutes   0.0.0.0:8041->8040/tcp, :::8041->8040/tcp                                              doris-be-01
+b442f3ab54e7   apache/doris:2.0.0_alpha-be-x86_64   "bash entry_point.sh"   19 minutes ago   Up 19 minutes   0.0.0.0:8043->8040/tcp, :::8043->8040/tcp                                              doris-be-03
+72dcab94a6a3   apache/doris:2.0.0_alpha-be-x86_64   "bash entry_point.sh"   19 minutes ago   Up 19 minutes   0.0.0.0:8042->8040/tcp, :::8042->8040/tcp                                              doris-be-02
+8417f1ba3b4d   apache/doris:2.0.0_alpha-fe-x86_64   "bash init_fe.sh"       19 minutes ago   Up 19 minutes   0.0.0.0:8031->8030/tcp, :::8031->8030/tcp, 0.0.0.0:9031->9030/tcp, :::9031->9030/tcp   doris-fe-01
+3c51890c2964   apache/doris:2.0.0_alpha-fe-x86_64   "bash init_fe.sh"       19 minutes ago   Up 19 minutes   0.0.0.0:8032->8030/tcp, :::8032->8030/tcp, 0.0.0.0:9032->9030/tcp, :::9032->9030/tcp   doris-fe-02
+aa75071b05a7   apache/doris:2.0.0_alpha-fe-x86_64   "bash init_fe.sh"       19 minutes ago   Up 19 minutes   0.0.0.0:8033->8030/tcp, :::8033->8030/tcp, 0.0.0.0:9033->9030/tcp, :::9033->9030/tcp   doris-fe-03
+
 ```
 
 ### Connect to the mySQL interface
