@@ -1,6 +1,6 @@
 # Trying out Apache Doris
 
-Just trying out Apache Doris, after reading this post "[Empowering cyber security by enabling 7 times faster log analysis](https://doris.apache.org/blog/empowering-cyber-security-by-enabling-seven-times-faster-log-analysis/0)"
+Just trying out Apache Doris, after reading this post "[Empowering cyber security by enabling 7 times faster log analysis](https://doris.apache.org/blog/empowering-cyber-security-by-enabling-seven-times-faster-log-analysis)"
 
 Before you start, run the following, it increases the maximum number of memory map areas a process can have, which is important for Apache Doris to handle large data sets and operations efficiently.
 
