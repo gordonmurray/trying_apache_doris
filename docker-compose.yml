@@ -1,0 +1,34 @@
+version: "3"
+services:
+
+  fe:
+    image: apache/doris:2.0.0_alpha-fe-x86_64
+    hostname: fe
+    ports:
+      - "9030:9030" # MySQL-compatible connection port
+      - "8030:8030" # HTTP port for web UI and RESTful API
+      - "9020:9020" # RPC port
+    environment:
+    - FE_SERVERS=fe1:127.0.0.1:9010
+    - FE_ID=1
+    volumes:
+    - /data/fe/doris-meta/:/opt/apache-doris/fe/doris-meta/
+    - /data/fe/log/:/opt/apache-doris/fe/log/
+    network_mode: host
+
+  be:
+    image: apache/doris:2.0.0_alpha-be-x86_64
+    hostname: be
+    ports:
+      - "8040:8040" # HTTP port for web UI and monitoring
+      - "8060:8060" # BE service port
+      - "9050:9050" # Heartbeat service port
+    environment:
+    - FE_SERVERS=fe1:127.0.0.1:9010
+    - BE_ADDR=127.0.0.1:9050
+    volumes:
+    - /data/be/storage/:/opt/apache-doris/be/storage/
+    - /data/be/script/:/docker-entrypoint-initdb.d/
+    depends_on:
+      - fe
+    network_mode: host
