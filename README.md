@@ -1,5 +1,7 @@
 # Trying out Apache Doris
 
+![Static Badge](https://img.shields.io/badge/Just_testing-Not_production_ready-red)
+
 Just trying out Apache Doris, after reading this post "[Empowering cyber security by enabling 7 times faster log analysis](https://doris.apache.org/blog/empowering-cyber-security-by-enabling-seven-times-faster-log-analysis)"
 
 Before you start, run the following, it increases the maximum number of memory map areas a process can have, which is important for Apache Doris to handle large data sets and operations efficiently.
@@ -18,8 +20,8 @@ You should see two containers running as a result, such as:
 
 ```
 CONTAINER ID   IMAGE                                COMMAND                 CREATED       STATUS       PORTS     NAMES
-c57efd4cdbf5   apache/doris:2.0.0_alpha-be-x86_64   "bash entry_point.sh"   4 hours ago   Up 1 hours             doris-be-1
-bf82ce708150   apache/doris:2.0.0_alpha-fe-x86_64   "bash init_fe.sh"       4 hours ago   Up 1 hours             doris-fe-1
+c57efd4cdbf5   apache/doris:2.0.0_alpha-be-x86_64   "bash entry_point.sh"   1 hours ago   Up 1 hours             doris-be-1
+bf82ce708150   apache/doris:2.0.0_alpha-fe-x86_64   "bash init_fe.sh"       1 hours ago   Up 1 hours             doris-fe-1
 ```
 
 ### Connect to the mySQL interface
