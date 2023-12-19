@@ -60,17 +60,17 @@ Create a table in Doris to start comsuming the kafka topic
 
 ```
 CREATE TABLE kafka_table (
-    fruit varchar,
+    fruit varchar(50),
     price double
 ) ENGINE=OLAP
-DISTRIBUTED BY HASH(fruit) BUCKETS 10;
+DISTRIBUTED BY HASH(fruit) BUCKETS 3;
 ```
 
 Create a Routine Load Job
 
 ```
-CREATE ROUTINE LOAD db1.kafka_table ON kafka_table
-COLUMNS TERMINATED BY ",",
+CREATE ROUTINE LOAD products.kafka_table ON kafka_table
+COLUMNS TERMINATED BY ","
 PROPERTIES
 (
     "desired_concurrent_number"="3",
@@ -84,8 +84,8 @@ FROM KAFKA
 (
     "kafka_broker_list" = "localhost:9092",
     "kafka_topic" = "kafka_topic",
-    "property.group.id" = "group_id",
-    "property.client.id" = "client_id"
+    "property.group.id" = "1",
+    "property.client.id" = "2"
 );
 ```
 
